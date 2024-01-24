@@ -169,6 +169,10 @@ namespace Flexxi
             {
                 factor = ((double)width) / ((double)height);
             }
+            if (Radio11.Checked)
+            {
+                factor = 1.0;
+            }
             if (Radio43.Checked)
             {
                 factor = 4.0 / 3.0;
@@ -181,7 +185,12 @@ namespace Flexxi
             {
                 factor = 16.0 / 9.0;
             }
-            if((Radio43.Checked || Radio32.Checked || Radio169.Checked) && ((double)width) / ((double)height) < 1.0)
+            if (AspectOther.Checked)
+            {
+                factor = (double)AspectWidth.Value / (double)AspectHeight.Value;
+            }
+            //if ((Radio11.Checked || Radio43.Checked || Radio32.Checked || Radio169.Checked) && ((double)width) / ((double)height) < 1.0)
+            if (FlipSize.Checked && ((double)width) / ((double)height) < 1.0)
             {
                 factor = 1 / factor;
             }
@@ -258,7 +267,7 @@ namespace Flexxi
         {
             if (((RadioButton)sender).Text == "Ignore")
             {
-                Radio1024.Enabled = Radio640.Enabled = Radio320.Enabled = Radio160.Enabled = false;
+                Radio1024.Enabled = Radio640.Enabled = Radio320.Enabled = Radio160.Enabled = RadioOther.Enabled = false;
                 RadioOther.Checked = true;
             }
             else
@@ -324,6 +333,11 @@ namespace Flexxi
             {
                 ManualSizeChange(sender);
             }
+        }
+
+        private void ManualAspect_ValueChanged(object sender, EventArgs e)
+        {
+            Change();
         }
 
         public int getQuality()
@@ -412,6 +426,11 @@ namespace Flexxi
         private void FlipSize_CheckedChanged(object sender, EventArgs e)
         {
             Change();
+        }
+
+        private void flowLayoutPanel3_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

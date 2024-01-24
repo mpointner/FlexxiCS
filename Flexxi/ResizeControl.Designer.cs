@@ -62,9 +62,15 @@
             this.groupBoxPropotionality = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.RadioPropOriginal = new System.Windows.Forms.RadioButton();
+            this.Radio11 = new System.Windows.Forms.RadioButton();
             this.Radio43 = new System.Windows.Forms.RadioButton();
             this.Radio32 = new System.Windows.Forms.RadioButton();
             this.Radio169 = new System.Windows.Forms.RadioButton();
+            this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
+            this.AspectOther = new System.Windows.Forms.RadioButton();
+            this.AspectWidth = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
+            this.AspectHeight = new System.Windows.Forms.NumericUpDown();
             this.FlipSize = new System.Windows.Forms.CheckBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.flowLayoutPanel2.SuspendLayout();
@@ -82,6 +88,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericQuality)).BeginInit();
             this.groupBoxPropotionality.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AspectWidth)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AspectHeight)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel2
@@ -96,7 +104,7 @@
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(3, 3, 1, 3);
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(170, 702);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(170, 716);
             this.flowLayoutPanel2.TabIndex = 1;
             // 
             // groupBox2
@@ -104,10 +112,10 @@
             this.groupBox2.Controls.Add(this.flowLayoutPanel4);
             this.groupBox2.Location = new System.Drawing.Point(6, 6);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(160, 201);
+            this.groupBox2.Size = new System.Drawing.Size(160, 186);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Size";
+            this.groupBox2.Text = "Maximum Size";
             // 
             // flowLayoutPanel4
             // 
@@ -124,7 +132,7 @@
             this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 16);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(154, 182);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(154, 167);
             this.flowLayoutPanel4.TabIndex = 0;
             // 
             // RadioSizeOriginal
@@ -134,7 +142,7 @@
             this.RadioSizeOriginal.Location = new System.Drawing.Point(3, 3);
             this.RadioSizeOriginal.Name = "RadioSizeOriginal";
             this.RadioSizeOriginal.Size = new System.Drawing.Size(60, 17);
-            this.RadioSizeOriginal.TabIndex = 9;
+            this.RadioSizeOriginal.TabIndex = 1;
             this.RadioSizeOriginal.TabStop = true;
             this.RadioSizeOriginal.Text = "Original";
             this.RadioSizeOriginal.UseVisualStyleBackColor = true;
@@ -145,7 +153,7 @@
             this.Radio1024.Location = new System.Drawing.Point(3, 26);
             this.Radio1024.Name = "Radio1024";
             this.Radio1024.Size = new System.Drawing.Size(104, 17);
-            this.Radio1024.TabIndex = 0;
+            this.Radio1024.TabIndex = 2;
             this.Radio1024.Tag = "NoTranslate";
             this.Radio1024.Text = "1024x768";
             this.Radio1024.UseVisualStyleBackColor = true;
@@ -156,7 +164,7 @@
             this.Radio640.Location = new System.Drawing.Point(3, 49);
             this.Radio640.Name = "Radio640";
             this.Radio640.Size = new System.Drawing.Size(104, 17);
-            this.Radio640.TabIndex = 1;
+            this.Radio640.TabIndex = 3;
             this.Radio640.Tag = "NoTranslate";
             this.Radio640.Text = "640x480";
             this.Radio640.UseVisualStyleBackColor = true;
@@ -167,7 +175,7 @@
             this.Radio320.Location = new System.Drawing.Point(3, 72);
             this.Radio320.Name = "Radio320";
             this.Radio320.Size = new System.Drawing.Size(104, 17);
-            this.Radio320.TabIndex = 3;
+            this.Radio320.TabIndex = 4;
             this.Radio320.Tag = "NoTranslate";
             this.Radio320.Text = "320x240";
             this.Radio320.UseVisualStyleBackColor = true;
@@ -178,7 +186,7 @@
             this.Radio160.Location = new System.Drawing.Point(3, 95);
             this.Radio160.Name = "Radio160";
             this.Radio160.Size = new System.Drawing.Size(140, 17);
-            this.Radio160.TabIndex = 2;
+            this.Radio160.TabIndex = 5;
             this.Radio160.Tag = "NoTranslate";
             this.Radio160.Text = "160x120";
             this.Radio160.UseVisualStyleBackColor = true;
@@ -189,7 +197,7 @@
             this.Radio120.Location = new System.Drawing.Point(3, 118);
             this.Radio120.Name = "Radio120";
             this.Radio120.Size = new System.Drawing.Size(140, 17);
-            this.Radio120.TabIndex = 10;
+            this.Radio120.TabIndex = 6;
             this.Radio120.Tag = "NoTranslate";
             this.Radio120.Text = "120x90";
             this.Radio120.UseVisualStyleBackColor = true;
@@ -201,7 +209,7 @@
             this.RadioOther.Location = new System.Drawing.Point(3, 141);
             this.RadioOther.Name = "RadioOther";
             this.RadioOther.Size = new System.Drawing.Size(14, 13);
-            this.RadioOther.TabIndex = 4;
+            this.RadioOther.TabIndex = 7;
             this.RadioOther.Tag = "NoTranslate";
             this.RadioOther.UseVisualStyleBackColor = true;
             this.RadioOther.Click += new System.EventHandler(this.RadioSize_Click);
@@ -214,9 +222,14 @@
             0,
             0,
             0});
+            this.ManualWidth.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.ManualWidth.Name = "ManualWidth";
             this.ManualWidth.Size = new System.Drawing.Size(50, 20);
-            this.ManualWidth.TabIndex = 6;
+            this.ManualWidth.TabIndex = 8;
             this.ManualWidth.Tag = "NoTranslate";
             this.ManualWidth.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ManualWidth.Value = new decimal(new int[] {
@@ -248,9 +261,14 @@
             0,
             0,
             0});
+            this.ManualHeight.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.ManualHeight.Name = "ManualHeight";
             this.ManualHeight.Size = new System.Drawing.Size(50, 20);
-            this.ManualHeight.TabIndex = 7;
+            this.ManualHeight.TabIndex = 9;
             this.ManualHeight.Tag = "NoTranslate";
             this.ManualHeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ManualHeight.Value = new decimal(new int[] {
@@ -266,7 +284,7 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.flowLayoutPanelResizeMode);
-            this.groupBox4.Location = new System.Drawing.Point(6, 213);
+            this.groupBox4.Location = new System.Drawing.Point(6, 198);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(160, 223);
             this.groupBox4.TabIndex = 2;
@@ -295,7 +313,7 @@
             this.radioResizeModeFit.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.radioResizeModeFit.Name = "radioResizeModeFit";
             this.radioResizeModeFit.Size = new System.Drawing.Size(150, 50);
-            this.radioResizeModeFit.TabIndex = 0;
+            this.radioResizeModeFit.TabIndex = 10;
             this.radioResizeModeFit.TabStop = true;
             this.radioResizeModeFit.Text = "Fit";
             this.radioResizeModeFit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -310,7 +328,7 @@
             this.radioResizeModeSprain.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.radioResizeModeSprain.Name = "radioResizeModeSprain";
             this.radioResizeModeSprain.Size = new System.Drawing.Size(150, 50);
-            this.radioResizeModeSprain.TabIndex = 1;
+            this.radioResizeModeSprain.TabIndex = 11;
             this.radioResizeModeSprain.Text = "Sprain";
             this.radioResizeModeSprain.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.radioResizeModeSprain.UseVisualStyleBackColor = true;
@@ -324,7 +342,7 @@
             this.radioResizeModeFill.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.radioResizeModeFill.Name = "radioResizeModeFill";
             this.radioResizeModeFill.Size = new System.Drawing.Size(150, 50);
-            this.radioResizeModeFill.TabIndex = 2;
+            this.radioResizeModeFill.TabIndex = 12;
             this.radioResizeModeFill.Text = "Fill";
             this.radioResizeModeFill.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.radioResizeModeFill.UseVisualStyleBackColor = true;
@@ -358,7 +376,7 @@
             this.labelFillColor.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.labelFillColor.Name = "labelFillColor";
             this.labelFillColor.Size = new System.Drawing.Size(100, 13);
-            this.labelFillColor.TabIndex = 0;
+            this.labelFillColor.TabIndex = 13;
             this.labelFillColor.Text = "Fill color";
             // 
             // flowLayoutOpacity
@@ -378,7 +396,7 @@
             this.numericUpDownOpacity.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.numericUpDownOpacity.Name = "numericUpDownOpacity";
             this.numericUpDownOpacity.Size = new System.Drawing.Size(38, 20);
-            this.numericUpDownOpacity.TabIndex = 1;
+            this.numericUpDownOpacity.TabIndex = 16;
             this.numericUpDownOpacity.Value = new decimal(new int[] {
             100,
             0,
@@ -398,7 +416,7 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.flowLayoutPanel1);
-            this.groupBox3.Location = new System.Drawing.Point(6, 442);
+            this.groupBox3.Location = new System.Drawing.Point(6, 427);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(160, 71);
             this.groupBox3.TabIndex = 2;
@@ -423,7 +441,7 @@
             this.RadioMaximumQuality.Location = new System.Drawing.Point(3, 3);
             this.RadioMaximumQuality.Name = "RadioMaximumQuality";
             this.RadioMaximumQuality.Size = new System.Drawing.Size(140, 17);
-            this.RadioMaximumQuality.TabIndex = 10;
+            this.RadioMaximumQuality.TabIndex = 17;
             this.RadioMaximumQuality.TabStop = true;
             this.RadioMaximumQuality.Text = "Maximum";
             this.RadioMaximumQuality.UseVisualStyleBackColor = true;
@@ -434,7 +452,7 @@
             this.RadioReduceQuality.Location = new System.Drawing.Point(3, 26);
             this.RadioReduceQuality.Name = "RadioReduceQuality";
             this.RadioReduceQuality.Size = new System.Drawing.Size(14, 13);
-            this.RadioReduceQuality.TabIndex = 4;
+            this.RadioReduceQuality.TabIndex = 18;
             this.RadioReduceQuality.Tag = "NoTranslate";
             this.RadioReduceQuality.UseVisualStyleBackColor = true;
             this.RadioReduceQuality.Click += new System.EventHandler(this.RadioQuality_Click);
@@ -445,7 +463,7 @@
             this.numericQuality.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.numericQuality.Name = "numericQuality";
             this.numericQuality.Size = new System.Drawing.Size(50, 20);
-            this.numericQuality.TabIndex = 6;
+            this.numericQuality.TabIndex = 19;
             this.numericQuality.Tag = "NoTranslate";
             this.numericQuality.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numericQuality.Value = new decimal(new int[] {
@@ -468,9 +486,9 @@
             // groupBoxPropotionality
             // 
             this.groupBoxPropotionality.Controls.Add(this.flowLayoutPanel3);
-            this.groupBoxPropotionality.Location = new System.Drawing.Point(6, 519);
+            this.groupBoxPropotionality.Location = new System.Drawing.Point(6, 504);
             this.groupBoxPropotionality.Name = "groupBoxPropotionality";
-            this.groupBoxPropotionality.Size = new System.Drawing.Size(160, 120);
+            this.groupBoxPropotionality.Size = new System.Drawing.Size(160, 161);
             this.groupBoxPropotionality.TabIndex = 0;
             this.groupBoxPropotionality.TabStop = false;
             this.groupBoxPropotionality.Text = "Aspect Ratio";
@@ -478,37 +496,52 @@
             // flowLayoutPanel3
             // 
             this.flowLayoutPanel3.Controls.Add(this.RadioPropOriginal);
+            this.flowLayoutPanel3.Controls.Add(this.Radio11);
             this.flowLayoutPanel3.Controls.Add(this.Radio43);
             this.flowLayoutPanel3.Controls.Add(this.Radio32);
             this.flowLayoutPanel3.Controls.Add(this.Radio169);
+            this.flowLayoutPanel3.Controls.Add(this.flowLayoutPanel5);
+            this.flowLayoutPanel3.Controls.Add(this.AspectOther);
+            this.flowLayoutPanel3.Controls.Add(this.AspectWidth);
+            this.flowLayoutPanel3.Controls.Add(this.label3);
+            this.flowLayoutPanel3.Controls.Add(this.AspectHeight);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 16);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(154, 101);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(154, 142);
             this.flowLayoutPanel3.TabIndex = 0;
+            this.flowLayoutPanel3.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel3_Paint);
             // 
             // RadioPropOriginal
             // 
-            this.RadioPropOriginal.AutoSize = true;
             this.RadioPropOriginal.Checked = true;
             this.RadioPropOriginal.Location = new System.Drawing.Point(3, 3);
             this.RadioPropOriginal.Name = "RadioPropOriginal";
-            this.RadioPropOriginal.Size = new System.Drawing.Size(60, 17);
-            this.RadioPropOriginal.TabIndex = 0;
+            this.RadioPropOriginal.Size = new System.Drawing.Size(140, 17);
+            this.RadioPropOriginal.TabIndex = 20;
             this.RadioPropOriginal.TabStop = true;
             this.RadioPropOriginal.Tag = "";
             this.RadioPropOriginal.Text = "Original";
             this.RadioPropOriginal.UseVisualStyleBackColor = true;
             this.RadioPropOriginal.Click += new System.EventHandler(this.RadioProp_Click);
             // 
+            // Radio11
+            // 
+            this.Radio11.Location = new System.Drawing.Point(3, 26);
+            this.Radio11.Name = "Radio11";
+            this.Radio11.Size = new System.Drawing.Size(140, 17);
+            this.Radio11.TabIndex = 21;
+            this.Radio11.Tag = "NoTranslate";
+            this.Radio11.Text = "1:1";
+            this.Radio11.UseVisualStyleBackColor = true;
+            this.Radio11.Click += new System.EventHandler(this.RadioProp_Click);
+            // 
             // Radio43
             // 
-            this.Radio43.AutoSize = true;
-            this.Radio43.Location = new System.Drawing.Point(3, 26);
+            this.Radio43.Location = new System.Drawing.Point(3, 49);
             this.Radio43.Name = "Radio43";
-            this.Radio43.Size = new System.Drawing.Size(40, 17);
-            this.Radio43.TabIndex = 1;
+            this.Radio43.Size = new System.Drawing.Size(140, 17);
+            this.Radio43.TabIndex = 22;
             this.Radio43.Tag = "NoTranslate";
             this.Radio43.Text = "4:3";
             this.Radio43.UseVisualStyleBackColor = true;
@@ -516,11 +549,10 @@
             // 
             // Radio32
             // 
-            this.Radio32.AutoSize = true;
-            this.Radio32.Location = new System.Drawing.Point(3, 49);
+            this.Radio32.Location = new System.Drawing.Point(3, 72);
             this.Radio32.Name = "Radio32";
-            this.Radio32.Size = new System.Drawing.Size(40, 17);
-            this.Radio32.TabIndex = 2;
+            this.Radio32.Size = new System.Drawing.Size(140, 17);
+            this.Radio32.TabIndex = 23;
             this.Radio32.Tag = "NoTranslate";
             this.Radio32.Text = "3:2";
             this.Radio32.UseVisualStyleBackColor = true;
@@ -528,21 +560,101 @@
             // 
             // Radio169
             // 
-            this.Radio169.AutoSize = true;
-            this.Radio169.Location = new System.Drawing.Point(3, 72);
+            this.Radio169.Location = new System.Drawing.Point(3, 95);
             this.Radio169.Name = "Radio169";
-            this.Radio169.Size = new System.Drawing.Size(46, 17);
-            this.Radio169.TabIndex = 3;
+            this.Radio169.Size = new System.Drawing.Size(140, 17);
+            this.Radio169.TabIndex = 24;
             this.Radio169.Tag = "NoTranslate";
             this.Radio169.Text = "16:9";
             this.Radio169.UseVisualStyleBackColor = true;
             this.Radio169.Click += new System.EventHandler(this.RadioProp_Click);
             // 
+            // flowLayoutPanel5
+            // 
+            this.flowLayoutPanel5.AutoSize = true;
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(146, 92);
+            this.flowLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(0, 0);
+            this.flowLayoutPanel5.TabIndex = 26;
+            // 
+            // AspectOther
+            // 
+            this.AspectOther.AutoSize = true;
+            this.AspectOther.Location = new System.Drawing.Point(3, 118);
+            this.AspectOther.Name = "AspectOther";
+            this.AspectOther.Size = new System.Drawing.Size(14, 13);
+            this.AspectOther.TabIndex = 25;
+            this.AspectOther.Tag = "NoTranslate";
+            this.AspectOther.UseVisualStyleBackColor = true;
+            this.AspectOther.Click += new System.EventHandler(this.RadioProp_Click);
+            // 
+            // AspectWidth
+            // 
+            this.AspectWidth.Location = new System.Drawing.Point(23, 118);
+            this.AspectWidth.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.AspectWidth.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.AspectWidth.Name = "AspectWidth";
+            this.AspectWidth.Size = new System.Drawing.Size(50, 20);
+            this.AspectWidth.TabIndex = 9;
+            this.AspectWidth.Tag = "NoTranslate";
+            this.AspectWidth.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.AspectWidth.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.AspectWidth.ValueChanged += new System.EventHandler(this.ManualAspect_ValueChanged);
+            // 
+            // label3
+            // 
+            this.label3.Location = new System.Drawing.Point(76, 115);
+            this.label3.Margin = new System.Windows.Forms.Padding(0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(10, 17);
+            this.label3.TabIndex = 11;
+            this.label3.Tag = "NoTranslate";
+            this.label3.Text = "x";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // AspectHeight
+            // 
+            this.AspectHeight.Location = new System.Drawing.Point(89, 118);
+            this.AspectHeight.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.AspectHeight.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.AspectHeight.Name = "AspectHeight";
+            this.AspectHeight.Size = new System.Drawing.Size(50, 20);
+            this.AspectHeight.TabIndex = 10;
+            this.AspectHeight.Tag = "NoTranslate";
+            this.AspectHeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.AspectHeight.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.AspectHeight.ValueChanged += new System.EventHandler(this.ManualAspect_ValueChanged);
+            // 
             // FlipSize
             // 
             this.FlipSize.Checked = true;
             this.FlipSize.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.FlipSize.Location = new System.Drawing.Point(8, 647);
+            this.FlipSize.Location = new System.Drawing.Point(8, 673);
             this.FlipSize.Margin = new System.Windows.Forms.Padding(5, 5, 0, 0);
             this.FlipSize.Name = "FlipSize";
             this.FlipSize.Size = new System.Drawing.Size(160, 40);
@@ -558,7 +670,7 @@
             this.AutoScroll = true;
             this.Controls.Add(this.flowLayoutPanel2);
             this.Name = "ResizeControl";
-            this.Size = new System.Drawing.Size(170, 705);
+            this.Size = new System.Drawing.Size(185, 971);
             this.SizeChanged += new System.EventHandler(this.ResizeControl_SizeChanged);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -578,6 +690,8 @@
             this.groupBoxPropotionality.ResumeLayout(false);
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AspectWidth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AspectHeight)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -623,5 +737,11 @@
         private System.Windows.Forms.NumericUpDown numericUpDownOpacity;
         private System.Windows.Forms.Label labelOpacity;
         private System.Windows.Forms.RadioButton Radio120;
+        private System.Windows.Forms.RadioButton Radio11;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown AspectHeight;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
+        private System.Windows.Forms.RadioButton AspectOther;
+        private System.Windows.Forms.NumericUpDown AspectWidth;
     }
 }
